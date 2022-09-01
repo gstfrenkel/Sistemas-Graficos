@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head lang = "en">
+        <meta charset = "UTF-8">
+        <style>
+            {font-family: monospace;}
+        </style>
+    </head>
+
+    <body>
+        <div id = = "title">
+            <h1>Sistemas Gráficos</h1>
+            <h2>WebGL Ejemeplo 01 - Canvas y WebGL Context</h2>
+
+            <canvas id = "my-canvas" width = "900" height = "500">
+                Your browser does not support the HTML5 canvas element.
+            </canvas>
+        </div>
+
+        <script>
+            function initWebGL(){
+                canvas = document.getElementById("my-canvas");
+
+                try{
+                    gl = canvas.getContext("webgl");
+                } catch(e){
+                    alert("Error al obtener el contexto");
+                }
+
+                if(gl){
+                    gl.clearColor(0.1, 0.1, 0.5, 1.0);
+                    gl.clear(gl.COLOR_BUFFER_BIT);       //Pinta fondo de azul
+                } else{
+                    alert("Error: WebGL not supported by browser.")
+                }
+            }
+
+            window.onload = initWebGL;
+        </script>
+    </body>
+</html>
